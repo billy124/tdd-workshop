@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder {
         User::create([
                     'first_name' => 'Dan',
                     'last_name' => 'Emery',
-                    'email' => 'dan@e3creative.co.uk',
+                    'email' => 'dan@somedomain.co.uk',
                     'password' => 'testtest',
                     'phone' => '01612234456',
                     'address_line1' => '23 Cool street'

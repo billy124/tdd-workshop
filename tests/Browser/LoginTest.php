@@ -10,7 +10,7 @@ class LoginTest extends DuskTestCase {
     public function testInvalidLoginAttempt() {
         $this->browse(function($browser) {
             $browser->visit($this->getUrl('login'))
-                    ->type('email', 'jake@e3creative.co.uk')
+                    ->type('email', 'jake@somedomain.co.uk')
                     ->type('password', 'testtest')
                     ->press('Login')
                     ->assertSee('These credentials do not match our records.');
@@ -20,7 +20,7 @@ class LoginTest extends DuskTestCase {
     public function testAttemptLogin() {
         $this->browse(function($browser) {
             $browser->visit($this->getUrl('login'))
-                    ->type('email', 'dan@e3creative.co.uk')
+                    ->type('email', 'dan@somedomain.co.uk')
                     ->type('password', 'testtest')
                     ->press('Login')
                     ->assertSee('Dashboard');
