@@ -8,6 +8,16 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 class RegisterTest extends DuskTestCase {
 
     /**
+     * Tests covered in this class
+     * - test that we can visit the register page
+     * - Make sure we can register using valid credentials 
+     * - Make sure users can't register using same email
+     * - Test the required fields
+     * - Test that the password field and confirm password fields match
+     * - test the password length is greater then x amount of characters 
+     */
+    
+    /**
      * Visit register page and make sure we see the text register
      * 
      * @return void
@@ -44,7 +54,7 @@ class RegisterTest extends DuskTestCase {
      * 
      * @return void
      */
-    public function testDupeEmailRegister() {
+    public function testDupeEmail() {
         $this->browse(function ($browser) {
             $browser
                 ->visit($this->getUrl('register'))
@@ -62,7 +72,7 @@ class RegisterTest extends DuskTestCase {
      * 
      * @return void
      */
-    public function testErrorsOnRegister() {
+    public function testErrorsHandling() {
         $this->browse(function ($browser) {
             $browser
                 ->visit($this->getUrl('register'))
@@ -83,7 +93,7 @@ class RegisterTest extends DuskTestCase {
      * 
      * @return void
      */
-    public function testPasswordMatchingRegister() {
+    public function testPasswordsMatch() {
         $this->browse(function ($browser) {
             $browser
                 ->visit($this->getUrl('register'))
@@ -104,7 +114,7 @@ class RegisterTest extends DuskTestCase {
      * 
      * @return void
      */
-    public function testPasswordLengthRegister() {
+    public function testPasswordLength() {
         $this->browse(function ($browser) {
             $browser
                 ->visit($this->getUrl('register'))
