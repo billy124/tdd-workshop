@@ -14,7 +14,7 @@ class RegisterTest extends DuskTestCase {
      */
     public function testValidRegister() {
         $this->browse(function ($browser) {
-            $browser->visit('http://127.0.0.1:8000/register')
+            $browser->visit($this->getUrl('register'))
                     ->assertSee('Register')
                     ->type('first_name', 'Billy')
                     ->type('last_name', 'Mahmood')
@@ -43,7 +43,7 @@ class RegisterTest extends DuskTestCase {
     public function testDupeEmailRegister() {
         $this->browse(function ($browser) {
             $browser->pause(1000);
-            $browser->visit('http://127.0.0.1:8000/register')
+            $browser->visit($this->getUrl('register'))
                     ->assertSee('Register')
                     ->type('first_name', 'Billy')
                     ->type('last_name', 'Mahmood')
@@ -65,7 +65,7 @@ class RegisterTest extends DuskTestCase {
     public function testErrorsOnRegister() {
         $this->browse(function ($browser) {
             $browser->pause(1000);
-            $browser->visit('http://127.0.0.1:8000/register')
+            $browser->visit($this->getUrl('register'))
                     ->assertSee('Register')
                     ->type('first_name', '')
                     ->type('last_name', 'Mahmood')

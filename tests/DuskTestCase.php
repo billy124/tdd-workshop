@@ -10,6 +10,8 @@ abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    protected $url = 'http://127.0.0.1:8000';
+    
     /**
      * Prepare for Dusk test execution.
      *
@@ -31,5 +33,9 @@ abstract class DuskTestCase extends BaseTestCase
         return RemoteWebDriver::create(
             'http://localhost:9515', DesiredCapabilities::chrome()
         );
+    }
+    
+    public function getUrl($append = '') {
+        return $this->url . '/' . $append;
     }
 }
