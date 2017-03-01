@@ -38,4 +38,6 @@ abstract class DuskTestCase extends BaseTestCase
     public function getUrl($append = '') {
         return $this->url . '/' . $append;
     }
+    
+    
 }
