@@ -100,6 +100,27 @@ class RegisterTest extends DuskTestCase {
     }
     
     /**
+     * Test the password and confirm password
+     * 
+     * @return void
+     */
+    public function testPasswordLengthRegister() {
+        $this->browse(function ($browser) {
+            $browser
+                ->visit($this->getUrl('register'))
+                ->assertSee('Register');
+            
+            $this->getRegisterTest($browser)
+                    ->type('password', 'test1')
+                    ->type('password_confirmation', 'test1')
+                    ->type('email', 'omar@e3creative.co.uk')
+                    ->press('Register')
+                    ->assertSee('The password must be at least 6 characters.')
+            ;
+        });
+    }
+    
+    /**
      * Get the register page data
      * 
      * @param type $browser
